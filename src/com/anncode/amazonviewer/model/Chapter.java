@@ -17,4 +17,64 @@ public class Chapter {
 		this.year = year;
 	}
 
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return this.title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public int getDuration() {
+		return this.duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public short getYear() {
+		return this.year;
+	}
+
+	public void setYear(short year) {
+		this.year = year;
+	}
+
+	public boolean isViewed() {
+		return this.viewed;
+	}
+
+	public boolean getViewed() {
+		return this.viewed;
+	}
+
+	public void setViewed(boolean viewed) {
+		this.viewed = viewed;
+	}
+
+	public int getTimeViewed() {
+		return this.timeViewed;
+	}
+
+	public void setTimeViewed(int timeViewed) {
+		this.timeViewed = timeViewed;
+	}
+
+	public int getSessionNumber() {
+		return this.sessionNumber;
+	}
+
+	public void setSessionNumber(int sessionNumber) {
+		this.sessionNumber = sessionNumber;
+	}
+
 }
