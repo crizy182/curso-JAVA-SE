@@ -7,8 +7,8 @@ import com.anncode.amazonviewer.model.Movie;
 public class Main {
 
 	public static void main(String[] args) {
-
-		Movie movie = new Movie("Coco", "Animation", (short) 2017);
+		// Movie(String title, String genre, String creator, int duration, short year)
+		Movie movie = new Movie("dracula", "animation", "any", 6, (short) 1958);
 		movie.showData();
 		// showMenu();
 
