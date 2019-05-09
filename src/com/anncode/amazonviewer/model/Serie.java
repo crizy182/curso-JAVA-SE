@@ -1,12 +1,13 @@
 package com.anncode.amazonviewer.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Serie extends Film {
 
 	private int id;
 	private int sessionQuantity;
-	private Chapter[] chapters;// es una coleccion de objetos
+	private ArrayList<Chapter> chapters;// es una coleccion de objetos
 	// chapters[]
 
 	public Serie(String title, String genre, String creator, int duration, int sessionQuantity) {
@@ -27,11 +28,11 @@ public class Serie extends Film {
 		this.sessionQuantity = sessionQuantity;
 	}
 
-	public Chapter[] getChapter() {
-		return this.chapters;
+	public ArrayList<Chapter> getChapters() {
+		return chapters;
 	}
 
-	public void setChapter(Chapter[] chapters) {
+	public void setChapter(ArrayList<Chapter> chapters) {
 		this.chapters = chapters;
 	}
 
