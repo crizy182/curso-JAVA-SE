@@ -1,19 +1,16 @@
 package com.anncode.amazonviewer;
 
+import java.util.Scanner;
 import java.util.Date;
+import java.util.ArrayList;
 
 import com.anncode.amazonviewer.model.Movie;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// Movie(String title, String genre, String creator, int duration, short year)
-		Movie movie = new Movie("dracula", "animation", "any", 6, (short) 1958);
-		System.out.println(movie);
-		// public Book(String title, Date editionDate, String editorial, String[]
-		// authors, String isbn)
-		// Book book = new Book("liberty","")
-		// showMenu();
+
+		showMenu();
 
 	}
 
@@ -33,6 +30,7 @@ public class Main {
 			System.out.println("0. Exit");
 
 			// Leer la respuesta del usuario
+			// Scanner sc = new Scanner(System.in);
 			int response = 1;
 			switch (response) {
 			case 0:
@@ -63,6 +61,7 @@ public class Main {
 				System.out.println();
 				System.out.println("....¡¡Selecciona una opción!!....");
 				System.out.println();
+
 				break;
 			}
 
@@ -70,11 +69,19 @@ public class Main {
 	}
 
 	public static void showMovies() {
-		int exit = 0;
+		int exit = 1;
+		ArrayList<Movie> movies = Movie.makeMoviesList();
 		do {
 			System.out.println();
 			System.out.println(":: MOVIES ::");
 			System.out.println();
+			for (int i = 0; i <= movies.size(); i++) {
+				System.out.println(i + 1 + ". " + movies.get(i).getTitle() + " visto " + movies.get(i).isViewed());
+			}
+			System.out.println("0. Regresar al menu");
+			System.out.println();
+			// Read the user's response
+
 		} while (exit != 0);
 
 	}
