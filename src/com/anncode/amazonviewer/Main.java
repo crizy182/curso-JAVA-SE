@@ -9,7 +9,10 @@ public class Main {
 	public static void main(String[] args) {
 		// Movie(String title, String genre, String creator, int duration, short year)
 		Movie movie = new Movie("dracula", "animation", "any", 6, (short) 1958);
-		movie.showData();
+		System.out.println(movie);
+		// public Book(String title, Date editionDate, String editorial, String[]
+		// authors, String isbn)
+		// Book book = new Book("liberty","")
 		// showMenu();
 
 	}
@@ -122,5 +125,4 @@ public class Main {
 	public static void makeReport(Date date) {
 
 	}
-
 }
