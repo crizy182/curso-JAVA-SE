@@ -1,5 +1,7 @@
 package com.anncode.amazonviewer.model;
 
+import java.util.Date;
+
 public class Serie extends Film {
 
 	private int id;

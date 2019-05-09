@@ -1,6 +1,8 @@
 package com.anncode.amazonviewer.model;
 
-public class Chapter extends Movie {
+import java.util.Date;
+
+public class Chapter extends Serie {
 
 	private int id;
 	private int sessionNumber;

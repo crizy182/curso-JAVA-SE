@@ -2,7 +2,7 @@ package com.anncode.amazonviewer.model;
 
 import java.util.Date;
 
-public class Book extends Publication {
+public class Book extends Publication implements IVisualizable {
 	private int id;
 	private String isbn;
 	private boolean readed;
@@ -54,4 +54,19 @@ public class Book extends Publication {
 				+ "\n readed" + getReaded() + "\n time readed" + getTimeReaded();
 
 	}
+
+	// pepeating code????
+	@Override
+	public Date startToSee(Date dateI) {
+		return dateI;
+	}
+
+	@Override
+	public void stopToSee(Date dateI, Date dateF) {
+		if (dateF.getTime() > dateI.getTime()) {
+			setTimeReaded((int) (dateF.getTime() - dateI.getTime()));
+		} else {
+			setTimeReaded(0);
+		}
+	};
 }

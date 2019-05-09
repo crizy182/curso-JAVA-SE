@@ -1,6 +1,8 @@
 package com.anncode.amazonviewer.model;
 
-public class Movie extends Film {
+import java.util.Date;
+
+public class Movie extends Film implements IVisualizable {
 	private int id;
 	private int timeViewed;
 
@@ -32,4 +34,19 @@ public class Movie extends Film {
 		return "\n ::Movie ::" + "\n Title:" + getTitle() + "\n Genero:" + getGenre() + "\n Year:\t" + getYear()
 				+ "\n Creator:" + getCreator() + "\n Duration:" + getDuration();
 	}
+
+	// pepeating code????
+	@Override
+	public Date startToSee(Date dateI) {
+		return dateI;
+	}
+
+	@Override
+	public void stopToSee(Date dateI, Date dateF) {
+		if (dateF.getTime() > dateI.getTime()) {
+			setTimeViewed((int) (dateF.getTime() - dateI.getTime()));
+		} else {
+			setTimeViewed(0);
+		}
+	};
 }
