@@ -75,13 +75,20 @@ public class Main {
 			System.out.println();
 			System.out.println(":: MOVIES ::");
 			System.out.println();
-			for (int i = 0; i <= movies.size(); i++) {
+			for (int i = 0; i <= (movies.size()-1); i++) {
 				System.out.println(i + 1 + ". " + movies.get(i).getTitle() + " visto " + movies.get(i).isViewed());
 			}
 			System.out.println("0. Regresar al menu");
 			System.out.println();
+			
 			// Read the user's response
-
+			Scanner sc = new Scanner(System.in);
+			int response = sc.nextInt();
+			
+			if(response == 0) {
+				//exit = 0;
+				showMenu();
+			}
 		} while (exit != 0);
 
 	}
