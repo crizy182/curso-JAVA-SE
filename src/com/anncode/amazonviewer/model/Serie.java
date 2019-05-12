@@ -35,5 +35,11 @@ public class Serie extends Film {
 	public void setChapter(ArrayList<Chapter> chapters) {
 		this.chapters = chapters;
 	}
-
+	public static ArrayList<Serie> makeSeriesList() {
+		ArrayList<Serie> series = new ArrayList();
+		for (int i = 1; i <= 5; i++) {
+			series.add(new Serie("Serie " + i, "Genero " + i, "Creador " + i, 120 + i, (short) (2017 + i)));
+		}
+		return series;
+	}
 }

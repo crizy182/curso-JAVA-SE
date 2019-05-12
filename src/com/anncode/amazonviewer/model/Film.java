@@ -63,7 +63,7 @@ public class Film {
         if (viewed) {
             visto = " si ";
         } else {
-            visto = " ño ";
+            visto = " no ";
         }
         return visto;
     }
