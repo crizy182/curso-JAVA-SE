@@ -8,13 +8,14 @@ public class Publication {
     private Date editionDate;
     private String editorial;
     private String[] authors;
+    private boolean viewed;
 
-    public Publication(String title, Date editionDate, String editorial, String[] authors) {
+    public Publication(String title, Date editionDate, String editorial) {
         super();
         this.title = title;
         this.editionDate = editionDate;
         this.editorial = editorial;
-        this.authors = authors;
+
     }
 
     public String getTitle() {
@@ -47,5 +48,19 @@ public class Publication {
 
     public void setAuthors(String[] authors) {
         this.authors = authors;
+    }
+
+    public String isViewed() {
+        String visto = "";
+        if (viewed == true) {
+            visto = "si";
+        } else {
+            visto = "no";
+        }
+        return visto;
+    }
+
+    public void setViewed(boolean viewed) {
+        this.viewed = viewed;
     }
 }

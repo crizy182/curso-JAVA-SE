@@ -1,18 +1,17 @@
 package com.anncode.amazonviewer.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Book extends Publication implements IVisualizable {
 	private int id;
 	private String isbn;
-	private boolean readed;
-	private int timeReaded;
+	private boolean Read;
+	private int timeRead;
 
-	public Book(String title, Date editionDate, String editorial, String[] authors, String isbn) {
-		super(title, editionDate, editorial, authors);
-		this.isbn = isbn;
-		this.readed = readed;
-		this.timeReaded = timeReaded;
+	public Book(String title, Date editionDate, String editorial, String[] authors) {
+		super(title, editionDate, editorial);
+		// setAuthors(authors);
 	}
 
 	public int getId() {
@@ -27,35 +26,34 @@ public class Book extends Publication implements IVisualizable {
 		this.isbn = isbn;
 	}
 
-	public boolean isReaded() {
-		return this.readed;
+	public boolean isRead() {
+		return Read;
 	}
 
-	public boolean getReaded() {
-		return this.readed;
+	public void setRead(boolean Read) {
+		this.Read = Read;
 	}
 
-	public void setReaded(boolean readed) {
-		this.readed = readed;
+	public int getTimeRead() {
+		return timeRead;
 	}
 
-	public int getTimeReaded() {
-		return this.timeReaded;
-	}
-
-	public void setTimeReaded(int timeReaded) {
-		this.timeReaded = timeReaded;
+	public void setTimeRead(int timeRead) {
+		this.timeRead = timeRead;
 	}
 
 	@Override
 	public String toString() {
-		return "\n\t::: Book :::" + "\n Title:\t\t" + getTitle() + "\n Edition Date:" + getEditionDate()
-				+ "\n Editorial:" + getEditorial() + "\n Authors: " + getAuthors() + "\n ISBN:\t\t" + getIsbn()
-				+ "\n readed" + getReaded() + "\n time readed" + getTimeReaded();
-
+		String detailBook = "\n\t::: Book :::" + "\n Title:\t\t" + getTitle() + "\n Edition Date:" + getEditionDate()
+				+ "\n Editorial:" + getEditorial() + "\n ISBN:\t\t" + getIsbn() + "\n time Read" + getTimeRead()
+				+ "\n Authors: ";
+		for (int i = 0; i < getAuthors().length; i++) {
+			detailBook += "\t" + getAuthors()[i];
+		}
+		return detailBook;
 	}
 
-	// pepeating code????
+	// repeating code????
 	@Override
 	public Date startToSee(Date dateI) {
 		return dateI;
@@ -64,9 +62,20 @@ public class Book extends Publication implements IVisualizable {
 	@Override
 	public void stopToSee(Date dateI, Date dateF) {
 		if (dateF.getTime() > dateI.getTime()) {
-			setTimeReaded((int) (dateF.getTime() - dateI.getTime()));
+			setTimeRead((int) (dateF.getTime() - dateI.getTime()));
 		} else {
-			setTimeReaded(0);
+			setTimeRead(0);
 		}
-	};
+	}
+
+	public static ArrayList<Book> makeBooksList() {
+		ArrayList<Book> books = new ArrayList();
+		Date myDate = new Date();
+		String[] authors = { "Gabo", "saramago", "toriyama" };
+		for (int i = 1; i <= 5; i++) {
+			// (String title, Date editionDate, String editorial, String[] authors)
+			books.add(new Book("Book " + i, myDate, "sixtorial", authors));
+		}
+		return books;
+	}
 }

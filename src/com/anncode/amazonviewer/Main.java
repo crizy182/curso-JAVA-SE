@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.anncode.amazonviewer.model.Movie;
 import com.anncode.amazonviewer.model.Serie;
 import com.anncode.amazonviewer.model.Chapter;
+import com.anncode.amazonviewer.model.Book;
 
 public class Main {
 
@@ -209,11 +210,39 @@ public class Main {
 	}
 
 	public static void showBooks() {
-		int exit = 0;
+		int exit = 3;
+		ArrayList<Book> books = Book.makeBooksList();
 		do {
 			System.out.println();
 			System.out.println(":: BOOKS ::");
 			System.out.println();
+			for (int i = 0; i < books.size(); i++) {
+				System.out.println((i + 1) + ". " + books.get(i).getTitle() + " leido: " + books.get(i).isRead());
+			}
+
+			System.out.println("0. Regresar al Menu");
+			System.out.println();
+
+			// Read the User's response
+			Scanner sc = new Scanner(System.in);
+			int response = Integer.valueOf(sc.nextLine());
+
+			if (response == 0) {
+				showMenu();
+			}
+
+			Book bookSelected = books.get(response - 1);
+			bookSelected.setRead(true);
+			Date dateI = bookSelected.startToSee(new Date());
+
+			for (int i = 0; i < 1000; i++) {
+				System.out.println("soy " + i);
+			}
+			// The read is done
+			bookSelected.stopToSee(dateI, new Date());
+			System.out.println();
+			// System.out.println("Leíste:" + bookSelected); Tratar este error con exception
+			System.out.println("Por" + bookSelected.getTimeRead() + "ms");
 		} while (exit != 0);
 	}
 
